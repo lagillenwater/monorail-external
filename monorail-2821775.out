@@ -1,0 +1,254 @@
+The first time you use SRA Toolkit you will need to configure it by running "vdb-config -i".
+Please see CURC documentation for more information about configuring and running SRA Toolkit.
++ singularity_image_file=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/recount-unify_1.1.0.sif
++ REF=hg38
++ REF_DIR_HOST=/scratch/alpine/lgillenwater@xsede.org/monorail-external/references
++ WORKING_DIR_HOST=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier
++ pushd /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier
+/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier /scratch/alpine/lgillenwater@xsede.org/monorail-external
++ INPUT_DIR_HOST=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/output
++ SAMPLE_ID_MANIFEST_HOST=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/sample_metadata.tsv
++ NUM_CPUS=20
++ export PROJECT_SHORT_NAME=sra
++ PROJECT_SHORT_NAME=sra
++ export PROJECT_ID=101
++ PROJECT_ID=101
++ export PROJECT_SHORT_NAME_AND_ID=htp:110
++ PROJECT_SHORT_NAME_AND_ID=htp:110
++ [[ -n htp:110 ]]
+++ perl -e '$in="htp:110"; chomp($in); ($p,$pid)=split(/:/,$in); if(length($p) == 0 || $pid!~/^(\d+)$/ || $pid < 100 || $pid > 249) {  print" bad project short name ($p) and/or project ID ($pid) input, format <project_short_name(str)>:project_id(int)> and project_id must be > 100 and < 250, exiting\n"; exit(-1);}'
++ failed_format_check=
++ [[ -n '' ]]
+++ echo htp:110
+++ tr : '\t'
+++ cut -f 1
++ export PROJECT_SHORT_NAME=htp
++ PROJECT_SHORT_NAME=htp
+++ echo htp:110
+++ tr : '\t'
+++ cut -f 2
++ export PROJECT_ID=110
++ PROJECT_ID=110
++ echo PROJECT_SHORT_NAME=htp
+PROJECT_SHORT_NAME=htp
++ echo PROJECT_ID=110
+PROJECT_ID=110
++ export MULTI_STUDY=
++ MULTI_STUDY=
++ SINGLE_STUDY_ONLY=
++ [[ ! -z '' ]]
++ INPUT_FROM_PUMP_DIR=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/input_from_pump
++ mkdir -p /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/input_from_pump
++ [[ ! -z '' ]]
++ export REF_DIR=/container-mounts/ref
++ REF_DIR=/container-mounts/ref
++ REF_DIR_HOST=/scratch/alpine/lgillenwater@xsede.org/monorail-external/references/hg38_unify
++ export ORGANISM_REF=hg38
++ ORGANISM_REF=hg38
++ [[ hg38 == \h\g\3\8 ]]
++ export LIST_OF_ANNOTATIONS=G026,G029,R109,F006,ERCC,SIRV
++ LIST_OF_ANNOTATIONS=G026,G029,R109,F006,ERCC,SIRV
++ export ANNOTATED_JXS=/container-mounts/ref/annotated_junctions.tsv.gz
++ ANNOTATED_JXS=/container-mounts/ref/annotated_junctions.tsv.gz
++ export EXON_COORDINATES_BED=/container-mounts/ref/exons.w_header.bed.gz
++ EXON_COORDINATES_BED=/container-mounts/ref/exons.w_header.bed.gz
++ export EXON_REJOIN_MAPPING=/container-mounts/ref/disjoint2exons.bed
++ EXON_REJOIN_MAPPING=/container-mounts/ref/disjoint2exons.bed
++ export GENE_REJOIN_MAPPING=/container-mounts/ref/disjoint2exons2genes.bed
++ GENE_REJOIN_MAPPING=/container-mounts/ref/disjoint2exons2genes.bed
++ export GENE_ANNOTATION_MAPPING=/container-mounts/ref/disjoint2exons2genes.rejoin_genes.bed
++ GENE_ANNOTATION_MAPPING=/container-mounts/ref/disjoint2exons2genes.rejoin_genes.bed
++ export REF_FASTA=/container-mounts/ref/recount_pump.fa
++ REF_FASTA=/container-mounts/ref/recount_pump.fa
++ export REF_SIZES=/container-mounts/ref/recount_pump.chr_sizes.tsv
++ REF_SIZES=/container-mounts/ref/recount_pump.chr_sizes.tsv
++ export EXON_BITMASKS=/container-mounts/ref/exon_bitmasks.tsv
++ EXON_BITMASKS=/container-mounts/ref/exon_bitmasks.tsv
++ export EXON_BITMASK_COORDS=/container-mounts/ref/exon_bitmask_coords.tsv
++ EXON_BITMASK_COORDS=/container-mounts/ref/exon_bitmask_coords.tsv
++ export INPUT_DIR=/container-mounts/input
++ INPUT_DIR=/container-mounts/input
++ export WORKING_DIR=/container-mounts/working
++ WORKING_DIR=/container-mounts/working
++ export REF_DIR=/container-mounts/ref
++ REF_DIR=/container-mounts/ref
++ export RECOUNT_CPUS=20
++ RECOUNT_CPUS=20
+++ basename /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/sample_metadata.tsv
++ sample_id_manfest_fn=sample_metadata.tsv
++ rsync -av /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/sample_metadata.tsv /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/sample_metadata.tsv
+sending incremental file list
+
+sent 111 bytes  received 12 bytes  246.00 bytes/sec
+total size is 63  speedup is 0.51
++ export SAMPLE_ID_MANIFEST_HOST_ORIG=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/sample_metadata.tsv
++ SAMPLE_ID_MANIFEST_HOST_ORIG=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/sample_metadata.tsv
++ export SAMPLE_ID_MANIFEST_HOST=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/ids.input
++ SAMPLE_ID_MANIFEST_HOST=/scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/ids.input
++ cut -f 1,2 /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/sample_metadata.tsv
++ tail -n+2
++ export SAMPLE_ID_MANIFEST=/container-mounts/working/ids.input
++ SAMPLE_ID_MANIFEST=/container-mounts/working/ids.input
++ export SAMPLE_ID_MANIFEST_ORIG=/container-mounts/working/sample_metadata.tsv
++ SAMPLE_ID_MANIFEST_ORIG=/container-mounts/working/sample_metadata.tsv
++ singularity exec -B /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/input_from_pump:/container-mounts/input -B /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier:/container-mounts/working -B /scratch/alpine/lgillenwater@xsede.org/monorail-external/references/hg38_unify:/container-mounts/ref /scratch/alpine/lgillenwater@xsede.org/monorail-external/htp/unifier/recount-unify_1.1.0.sif /bin/bash -x -c 'source activate recount-unify && /recount-unify/workflow.bash'
+INFO:    Environment variable SINGULARITY_TMPDIR is set, but APPTAINER_TMPDIR is preferred
++ source activate recount-unify
+++ _CONDA_ROOT=/opt/conda
+++ . /opt/conda/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/conda/bin/conda
++++ CONDA_EXE=/opt/conda/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/conda/bin/python
++++ CONDA_PYTHON_EXE=/opt/conda/bin/python
++++ '[' -z x ']'
+++ conda activate recount-unify
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate recount-unify
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate recount-unify
++++ __add_sys_prefix_to_path
++++ '[' -n '' ']'
+++++ dirname /opt/conda/bin/conda
++++ SYSP=/opt/conda/bin
+++++ dirname /opt/conda/bin
++++ SYSP=/opt/conda
++++ '[' -n '' ']'
++++ PATH=/opt/conda/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ /opt/conda/bin/conda shell.posix activate recount-unify
+++ ask_conda='PS1='\''(recount-unify) '\''
+export PATH='\''/opt/conda/envs/recount-unify/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/conda/envs/recount-unify'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''recount-unify'\''
+export CONDA_PROMPT_MODIFIER='\''(recount-unify) '\''
+export CONDA_EXE='\''/opt/conda/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/conda/bin/python'\''
+export CONDA_PREFIX_2='\''/home/lgillenwater@xsede.org/.conda/envs/DS-transfer'\'''
+++ eval 'PS1='\''(recount-unify) '\''
+export PATH='\''/opt/conda/envs/recount-unify/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/conda/envs/recount-unify'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''recount-unify'\''
+export CONDA_PROMPT_MODIFIER='\''(recount-unify) '\''
+export CONDA_EXE='\''/opt/conda/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/conda/bin/python'\''
+export CONDA_PREFIX_2='\''/home/lgillenwater@xsede.org/.conda/envs/DS-transfer'\'''
++++ PS1='(recount-unify) '
++++ export PATH=/opt/conda/envs/recount-unify/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/conda/envs/recount-unify/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/conda/envs/recount-unify
++++ CONDA_PREFIX=/opt/conda/envs/recount-unify
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=recount-unify
++++ CONDA_DEFAULT_ENV=recount-unify
++++ export 'CONDA_PROMPT_MODIFIER=(recount-unify) '
++++ CONDA_PROMPT_MODIFIER='(recount-unify) '
++++ export CONDA_EXE=/opt/conda/bin/conda
++++ CONDA_EXE=/opt/conda/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/conda/bin/python
++++ CONDA_PYTHON_EXE=/opt/conda/bin/python
++++ export CONDA_PREFIX_2=/home/lgillenwater@xsede.org/.conda/envs/DS-transfer
++++ CONDA_PREFIX_2=/home/lgillenwater@xsede.org/.conda/envs/DS-transfer
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ /recount-unify/workflow.bash
++ echo 'Working dir: /container-mounts/working'
+Working dir: /container-mounts/working
++ test -n /container-mounts/working
++ test -d /container-mounts/working
++ pushd /container-mounts/working
+/container-mounts/working ~
++ echo 'Ref dir: /container-mounts/ref'
+Ref dir: /container-mounts/ref
++ test -n /container-mounts/ref
++ test -d /container-mounts/ref
++ cp /container-mounts/ref/blank_exon_sums /container-mounts/working/
++ echo 'Input dir: /container-mounts/input'
+Input dir: /container-mounts/input
++ test -n /container-mounts/input
++ test -d /container-mounts/input
++ echo 'Annotated JXs Path: /container-mounts/ref/annotated_junctions.tsv.gz'
+Annotated JXs Path: /container-mounts/ref/annotated_junctions.tsv.gz
++ test -n /container-mounts/ref/annotated_junctions.tsv.gz
++ test -s /container-mounts/ref/annotated_junctions.tsv.gz
++ echo 'Disjoint Exons BED Path (w/ header): /container-mounts/ref/exons.w_header.bed.gz'
+Disjoint Exons BED Path (w/ header): /container-mounts/ref/exons.w_header.bed.gz
++ test -n /container-mounts/ref/exons.w_header.bed.gz
++ test -s /container-mounts/ref/exons.w_header.bed.gz
++ echo 'Gene rejoin mapping Path: /container-mounts/ref/disjoint2exons2genes.bed'
+Gene rejoin mapping Path: /container-mounts/ref/disjoint2exons2genes.bed
++ test -n /container-mounts/ref/disjoint2exons2genes.bed
++ test -s /container-mounts/ref/disjoint2exons2genes.bed
++ echo 'Gene annotation mapping Path: /container-mounts/ref/disjoint2exons2genes.rejoin_genes.bed'
+Gene annotation mapping Path: /container-mounts/ref/disjoint2exons2genes.rejoin_genes.bed
++ test -n /container-mounts/ref/disjoint2exons2genes.rejoin_genes.bed
++ test -s /container-mounts/ref/disjoint2exons2genes.rejoin_genes.bed
++ echo 'Exon rejoin mapping Path: /container-mounts/ref/disjoint2exons.bed'
+Exon rejoin mapping Path: /container-mounts/ref/disjoint2exons.bed
++ test -n /container-mounts/ref/disjoint2exons.bed
++ test -s /container-mounts/ref/disjoint2exons.bed
++ echo 'Reference FASTA sizes Path: /container-mounts/ref/recount_pump.chr_sizes.tsv'
+Reference FASTA sizes Path: /container-mounts/ref/recount_pump.chr_sizes.tsv
++ test -n /container-mounts/ref/recount_pump.chr_sizes.tsv
++ test -s /container-mounts/ref/recount_pump.chr_sizes.tsv
++ echo 'Reference FASTA Path: /container-mounts/ref/recount_pump.fa'
+Reference FASTA Path: /container-mounts/ref/recount_pump.fa
++ test -n /container-mounts/ref/recount_pump.fa
++ test -s /container-mounts/ref/recount_pump.fa
++ echo 'Exon Bitmasks Path: /container-mounts/ref/exon_bitmasks.tsv'
+Exon Bitmasks Path: /container-mounts/ref/exon_bitmasks.tsv
++ test -n /container-mounts/ref/exon_bitmasks.tsv
++ test -s /container-mounts/ref/exon_bitmasks.tsv
++ echo 'Exon Bitmask Coordinates Path: /container-mounts/ref/exon_bitmask_coords.tsv'
+Exon Bitmask Coordinates Path: /container-mounts/ref/exon_bitmask_coords.tsv
++ test -n /container-mounts/ref/exon_bitmask_coords.tsv
++ test -s /container-mounts/ref/exon_bitmask_coords.tsv
++ echo 'Annotation List: G026,G029,R109,F006,ERCC,SIRV'
+Annotation List: G026,G029,R109,F006,ERCC,SIRV
++ test -n G026,G029,R109,F006,ERCC,SIRV
++ echo 'Organism reference short name: hg38'
+Organism reference short name: hg38
++ test -n hg38
++ [[ -z 110 ]]
++ [[ -z htp ]]
++ echo 'Sample ID manifest: /container-mounts/working/ids.input'
+Sample ID manifest: /container-mounts/working/ids.input
++ test -n /container-mounts/working/ids.input
++ test -e /container-mounts/working/ids.input
+++ head -1 /container-mounts/working/ids.input
+++ tr '\t' '\n'
+++ wc -l
++ num_cols=2
++ [[ -z '' ]]
++ [[ 2 -ne 3 ]]
++ [[ 2 -ne 2 ]]
++ pushd /recount-unify/sample_ids
+/recount-unify/sample_ids /container-mounts/working ~
++ /usr/bin/python2.7 assign_compilation_ids.py --accessions-file /container-mounts/working/ids.input --acc-col 1 --compilation-code 110 --no-header
++ popd
+/container-mounts/working ~
++ compilation_arg=
++ [[ -z '' ]]
++ echo 'Running single-study mode'
+Running single-study mode
++ /bin/bash -x /recount-unify/scripts/create_directory_hierarchy_for_one_study.sh /container-mounts/working/ids.input /container-mounts/input /container-mounts/working/intermediate_links
++ /bin/bash -x /recount-unify/scripts/find_done.sh /container-mounts/working/intermediate_links links '*_att'
